@@ -167,8 +167,13 @@ const askInterviewQuestion = async (req, res) => {
                 .eq('id', req.body.id)
                 .select();
 
+            const { data: user, err } = await supabase
+                .from('user_table')
+                .select('*')
+                .eq('id', interview[0].user_id)
+
                 const emailData = {
-                    to: interview[0].email,
+                    to: user[0].email,
                     subject: 'Interview Report',
                     html: `
                         <div style="font-family: Arial, sans-serif; padding: 20px; color: #333;">
