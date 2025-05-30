@@ -42,13 +42,13 @@ const scheduleInterview = async (req, res) => {
                 <p>Hello,</p>
                 <p>Your interview has been scheduled and will expire in <strong>${expires_in}</strong> day(s).</p>
                 <p>Please click the button below to complete your interview:</p>
-                <a href="http://localhost:5173/scheduledInterview?id=${interview[0].id}" 
+                <a href="${process.env.CLIENTSIDEDOMAIN}/scheduledInterview?id=${interview[0].id}" 
                    style="display: inline-block; padding: 10px 20px; background-color: #2a9d8f; color: white; text-decoration: none; border-radius: 5px;">
                    Complete Interview
                 </a>
                 <p style="margin-top: 20px;">If the button doesn't work, you can also use this link:</p>
-                <p><a href="http://localhost:5173/scheduledInterview?id=${interview[0].id}">
-                    http://localhost:5173/scheduledInterview?id=${interview[0].id}
+                <p><a href="${process.env.CLIENTSIDEDOMAIN}/scheduledInterview?id=${interview[0].id}">
+                 ${process.env.CLIENTSIDEDOMAIN}/scheduledInterview?id=${interview[0].id}
                 </a></p>
                 <p>Good luck!</p>
             </div>
